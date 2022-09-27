@@ -45,7 +45,7 @@ class CinemaTest {
     }
 
     @Test
-    public void whenBySoldTicket() {
+    public void whenBuySoldTicket() {
         Account account = new AccountCinema();
         Cinema cinema = new Cinema3D();
         Calendar date = Calendar.getInstance();
