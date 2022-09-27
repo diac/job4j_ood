@@ -1,12 +1,14 @@
 package ru.job4j.template;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.*;
 
+@Disabled
 class GeneratorTest {
 
     @Test
@@ -14,9 +16,10 @@ class GeneratorTest {
         Generator generator = new SimpleGenerator();
         assertThat(
                 generator.produce("Test template: ${placeholder}", Map.of("placeholder", "success"))
-        ).isNull();
+        ).isEqualTo("Test template: success");
     }
 
+    @Test
     public void whenKeyDoesNotExist() {
         Generator generator = new SimpleGenerator();
         Assertions.assertThrows(
@@ -25,6 +28,7 @@ class GeneratorTest {
         );
     }
 
+    @Test
     public void whenTooManyKeysInMap() {
         Generator generator = new SimpleGenerator();
         Assertions.assertThrows(
