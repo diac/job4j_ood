@@ -1,4 +1,4 @@
-package ru.job4j.srp.employee;
+package ru.job4j.employee;
 
 import java.text.DecimalFormat;
 import java.util.function.Predicate;
@@ -7,10 +7,15 @@ public class BetterReportEngine implements Report {
 
     public static final DecimalFormat DECIMAL_FORMAT = new DecimalFormat("0.00");
 
-    private Store store;
+    private final Store store;
 
     public BetterReportEngine(Store store) {
         this.store = store;
+    }
+
+    @Override
+    public String outputType() {
+        return "html";
     }
 
     @Override

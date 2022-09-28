@@ -1,12 +1,13 @@
 package ru.job4j.srp.employee;
 
 import org.junit.jupiter.api.Test;
+import ru.job4j.employee.*;
 
 import java.util.Calendar;
 
-import static ru.job4j.srp.employee.ReportEngine.DATE_FORMAT;
+import static ru.job4j.employee.ReportEngine.DATE_FORMAT;
 
-import static ru.job4j.srp.employee.BetterReportEngine.DECIMAL_FORMAT;
+import static ru.job4j.employee.BetterReportEngine.DECIMAL_FORMAT;
 
 import static org.assertj.core.api.Assertions.*;
 

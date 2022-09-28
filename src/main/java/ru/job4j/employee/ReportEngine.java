@@ -1,4 +1,4 @@
-package ru.job4j.srp.employee;
+package ru.job4j.employee;
 
 import java.text.SimpleDateFormat;
 import java.util.function.Predicate;
@@ -11,6 +11,11 @@ public class ReportEngine implements Report {
 
     public ReportEngine(Store store) {
         this.store = store;
+    }
+
+    @Override
+    public String outputType() {
+        return "raw";
     }
 
     @Override
