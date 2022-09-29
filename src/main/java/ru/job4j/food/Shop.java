@@ -9,9 +9,13 @@ public class Shop implements Store {
     private List<Food> foods = new ArrayList<>();
 
     @Override
-    public boolean add(Food food) {
-        applyDiscount(food);
-        return foods.add(food);
+    public boolean accept(Food food) {
+        boolean canAccept = getFoodExpiryRate(food) >= FoodExpiryThresholds.FRESH
+                && getFoodExpiryRate(food) < FoodExpiryThresholds.SPOILED;
+        if (canAccept) {
+            foods.add(food);
+        }
+        return canAccept;
     }
 
     @Override

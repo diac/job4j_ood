@@ -8,8 +8,13 @@ public class Trash implements Store {
 
     private List<Food> foods = new ArrayList<>();
 
-    public boolean add(Food food) {
-        return foods.add(food);
+    @Override
+    public boolean accept(Food food) {
+        boolean canAccept = getFoodExpiryRate(food) >= FoodExpiryThresholds.SPOILED;
+        if (canAccept) {
+            foods.add(food);
+        }
+        return canAccept;
     }
 
     @Override

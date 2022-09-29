@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface Store {
 
-    boolean add(Food food);
-
     boolean addAll(Collection<Food> foods);
+
+    boolean accept(Food food);
 
     List<Food> getFoods();
 
