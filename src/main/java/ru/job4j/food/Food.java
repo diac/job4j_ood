@@ -2,7 +2,7 @@ package ru.job4j.food;
 
 import java.util.Calendar;
 
-public class Food {
+public abstract class Food {
 
     private String name;
     private Calendar expiryDate;

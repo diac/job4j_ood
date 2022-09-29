@@ -19,9 +19,9 @@ class ControlQualityTest {
         Calendar future = Calendar.getInstance();
         future.add(Calendar.DATE, 10);
         List<Food> foods = List.of(
-                new Food("Pork", future, today, 150, 5),
-                new Food("Beef", future, today, 120, 5),
-                new Food("Mutton", future, today, 200, 5)
+                new SimpleFood("Pork", future, today, 150, 5),
+                new SimpleFood("Beef", future, today, 120, 5),
+                new SimpleFood("Mutton", future, today, 200, 5)
         );
         controlQuality.sort(foods);
         assertThat(warehouse.getFoods().containsAll(foods)).isTrue();
@@ -40,9 +40,9 @@ class ControlQualityTest {
         Calendar tomorrow = Calendar.getInstance();
         tomorrow.add(Calendar.DATE, 1);
         List<Food> foods = List.of(
-                new Food("Pork", tomorrow, yesterday, 150, 5),
-                new Food("Beef", tomorrow, yesterday, 120, 5),
-                new Food("Mutton", tomorrow, yesterday, 200, 5)
+                new SimpleFood("Pork", tomorrow, yesterday, 150, 5),
+                new SimpleFood("Beef", tomorrow, yesterday, 120, 5),
+                new SimpleFood("Mutton", tomorrow, yesterday, 200, 5)
         );
         controlQuality.sort(foods);
         assertThat(warehouse.getFoods()).isEmpty();
@@ -61,9 +61,9 @@ class ControlQualityTest {
         Calendar past = Calendar.getInstance();
         past.add(Calendar.DATE, -10);
         List<Food> foods = List.of(
-                new Food("Pork", yesterday, past, 150, 5),
-                new Food("Beef", yesterday, past, 120, 5),
-                new Food("Mutton", yesterday, past, 200, 5)
+                new SimpleFood("Pork", yesterday, past, 150, 5),
+                new SimpleFood("Beef", yesterday, past, 120, 5),
+                new SimpleFood("Mutton", yesterday, past, 200, 5)
         );
         controlQuality.sort(foods);
         assertThat(warehouse.getFoods()).isEmpty();
@@ -86,9 +86,9 @@ class ControlQualityTest {
         yesterday.add(Calendar.DATE, -1);
         Calendar past = Calendar.getInstance();
         past.add(Calendar.DATE, -10);
-        Food fresh = new Food("Fresh", future, today, 100, 0);
-        Food good = new Food("Good", tomorrow, yesterday, 100, 0);
-        Food spoiled = new Food("Spoiled", yesterday, past, 100, 0);
+        Food fresh = new SimpleFood("Fresh", future, today, 100, 0);
+        Food good = new SimpleFood("Good", tomorrow, yesterday, 100, 0);
+        Food spoiled = new SimpleFood("Spoiled", yesterday, past, 100, 0);
         List<Food> foods = List.of(fresh, good, spoiled);
         controlQuality.sort(foods);
         assertThat(warehouse.getFoods()).containsExactly(fresh);
@@ -106,7 +106,7 @@ class ControlQualityTest {
         tomorrow.add(Calendar.DATE, 1);
         Calendar past = Calendar.getInstance();
         past.add(Calendar.DATE, -5);
-        List<Food> foods = List.of(new Food("Food", tomorrow, past, 100, 25));
+        List<Food> foods = List.of(new SimpleFood("Food", tomorrow, past, 100, 25));
         controlQuality.sort(foods);
         assertThat(shop.getFoods().containsAll(foods)).isTrue();
         assertThat(foods.get(0).getPrice()).isEqualTo(75);
