@@ -6,6 +6,7 @@ public class SimpleString implements Addable {
 
     @Override
     public void add(Object o) {
+        /* Приходится преобразовывать тип */
         value += o.toString();
     }
 }

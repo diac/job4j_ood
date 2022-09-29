@@ -1,6 +1,5 @@
 package ru.job4j.isp;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -10,6 +9,7 @@ public class VeryLongInt implements Addable {
 
     @Override
     public void add(Object o) {
+        /* Приходится преобразовывать тип */
         value.set(value.size() - 1, value.get(value.size() - 1) + (Long) o);
     }
 }
