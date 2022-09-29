@@ -3,15 +3,16 @@ package ru.job4j.srp.employee;
 import org.junit.jupiter.api.Test;
 import ru.job4j.employee.*;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
-
-import static ru.job4j.employee.ReportEngine.DATE_FORMAT;
 
 import static ru.job4j.employee.BetterReportEngine.DECIMAL_FORMAT;
 
 import static org.assertj.core.api.Assertions.*;
 
 class ReportEngineTest {
+
+    private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd:MM:yyyy HH:mm");
 
     @Test
     public void whenOldGenerated() {
