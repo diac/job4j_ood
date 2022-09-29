@@ -22,7 +22,7 @@ public class Warehouse implements Store {
 
     @Override
     public List<Food> getFoods() {
-        return foods;
+        return new ArrayList<>(foods);
     }
 
     @Override
