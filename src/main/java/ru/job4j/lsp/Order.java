@@ -18,13 +18,13 @@ public abstract class Order {
     }
 
     public float getTaxRate() {
-        if (taxRate < 0) {
-            throw new IllegalArgumentException("Налоговая ставка не может быть отрицательной");
-        }
         return taxRate;
     }
 
     public void setTaxRate(float taxRate) {
+        if (taxRate < 0) {
+            throw new IllegalArgumentException("Налоговая ставка не может быть отрицательной");
+        }
         this.taxRate = taxRate;
     }
 }
