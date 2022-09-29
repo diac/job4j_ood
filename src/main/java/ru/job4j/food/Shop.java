@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Shop implements Store {
 
-    List<Food> foods = new ArrayList<>();
+    private List<Food> foods = new ArrayList<>();
 
     @Override
     public boolean add(Food food) {

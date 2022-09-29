@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Warehouse implements Store {
 
-    List<Food> foods = new ArrayList<>();
+    private List<Food> foods = new ArrayList<>();
 
     @Override
     public boolean add(Food food) {

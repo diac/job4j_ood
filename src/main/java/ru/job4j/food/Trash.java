@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Trash implements Store {
 
-    List<Food> foods = new ArrayList<>();
+    private List<Food> foods = new ArrayList<>();
 
     public boolean add(Food food) {
         return foods.add(food);
