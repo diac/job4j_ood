@@ -4,8 +4,6 @@ import java.util.*;
 
 public class Warehouse implements Store {
 
-    private static final byte EXPIRY_RATE_THRESHOLD = 25;
-
     List<Food> foods = new ArrayList<>();
 
     @Override
@@ -26,7 +24,7 @@ public class Warehouse implements Store {
     @Override
     public List<Food> getExpired() {
         List<Food> expired = foods.stream()
-                .filter(food -> food.expiryRate() >= EXPIRY_RATE_THRESHOLD)
+                .filter(food -> getFoodExpiryRate(food) >= FoodExpiryThresholds.FRESH)
                 .toList();
         foods.removeAll(expired);
         return expired;

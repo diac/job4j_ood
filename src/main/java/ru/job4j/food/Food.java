@@ -61,11 +61,4 @@ public abstract class Food {
     public void applyDiscount() {
         price = price - price * discount / 100;
     }
-
-    public long expiryRate() {
-        long expiryRate = (Calendar.getInstance().getTimeInMillis() - createDate.getTimeInMillis())
-                * 100
-                / (expiryDate.getTimeInMillis() - createDate.getTimeInMillis());
-        return expiryRate <= 100 ? expiryRate : 100;
-    }
 }
