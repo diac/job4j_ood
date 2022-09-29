@@ -1,7 +1,6 @@
 package ru.job4j.food;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 public class Shop implements Store {
@@ -13,15 +12,10 @@ public class Shop implements Store {
         boolean canAccept = getFoodExpiryRate(food) >= FoodExpiryThresholds.FRESH
                 && getFoodExpiryRate(food) < FoodExpiryThresholds.SPOILED;
         if (canAccept) {
+            applyDiscount(food);
             foods.add(food);
         }
         return canAccept;
-    }
-
-    @Override
-    public boolean addAll(Collection<Food> foods) {
-        foods.forEach(this::applyDiscount);
-        return this.foods.addAll(foods);
     }
 
     @Override

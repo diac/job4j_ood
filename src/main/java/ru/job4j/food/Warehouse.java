@@ -16,11 +16,6 @@ public class Warehouse implements Store {
     }
 
     @Override
-    public boolean addAll(Collection<Food> foods) {
-        return this.foods.addAll(foods);
-    }
-
-    @Override
     public List<Food> getFoods() {
         return new ArrayList<>(foods);
     }

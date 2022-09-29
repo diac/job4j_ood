@@ -1,12 +1,9 @@
 package ru.job4j.food;
 
 import java.util.Calendar;
-import java.util.Collection;
 import java.util.List;
 
 public interface Store {
-
-    boolean addAll(Collection<Food> foods);
 
     boolean accept(Food food);
 

@@ -1,7 +1,6 @@
 package ru.job4j.food;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 public class Trash implements Store {
@@ -15,11 +14,6 @@ public class Trash implements Store {
             foods.add(food);
         }
         return canAccept;
-    }
-
-    @Override
-    public boolean addAll(Collection<Food> foods) {
-        return this.foods.addAll(foods);
     }
 
     @Override

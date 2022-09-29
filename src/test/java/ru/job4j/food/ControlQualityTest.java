@@ -14,7 +14,7 @@ class ControlQualityTest {
         Store warehouse = new Warehouse();
         Store shop = new Shop();
         Store trash = new Trash();
-        ControlQuality controlQuality = new ControlQuality(warehouse, shop, trash);
+        ControlQuality controlQuality = new ControlQuality(List.of(warehouse, shop, trash));
         Calendar today = Calendar.getInstance();
         Calendar future = Calendar.getInstance();
         future.add(Calendar.DATE, 10);
@@ -34,7 +34,7 @@ class ControlQualityTest {
         Store warehouse = new Warehouse();
         Store shop = new Shop();
         Store trash = new Trash();
-        ControlQuality controlQuality = new ControlQuality(warehouse, shop, trash);
+        ControlQuality controlQuality = new ControlQuality(List.of(warehouse, shop, trash));
         Calendar yesterday = Calendar.getInstance();
         yesterday.add(Calendar.DATE, -1);
         Calendar tomorrow = Calendar.getInstance();
@@ -55,7 +55,7 @@ class ControlQualityTest {
         Store warehouse = new Warehouse();
         Store shop = new Shop();
         Store trash = new Trash();
-        ControlQuality controlQuality = new ControlQuality(warehouse, shop, trash);
+        ControlQuality controlQuality = new ControlQuality(List.of(warehouse, shop, trash));
         Calendar yesterday = Calendar.getInstance();
         yesterday.add(Calendar.DATE, -1);
         Calendar past = Calendar.getInstance();
@@ -76,7 +76,7 @@ class ControlQualityTest {
         Store warehouse = new Warehouse();
         Store shop = new Shop();
         Store trash = new Trash();
-        ControlQuality controlQuality = new ControlQuality(warehouse, shop, trash);
+        ControlQuality controlQuality = new ControlQuality(List.of(warehouse, shop, trash));
         Calendar today = Calendar.getInstance();
         Calendar future = Calendar.getInstance();
         future.add(Calendar.DATE, 10);
@@ -101,7 +101,7 @@ class ControlQualityTest {
         Store warehouse = new Warehouse();
         Store shop = new Shop();
         Store trash = new Trash();
-        ControlQuality controlQuality = new ControlQuality(warehouse, shop, trash);
+        ControlQuality controlQuality = new ControlQuality(List.of(warehouse, shop, trash));
         Calendar tomorrow = Calendar.getInstance();
         tomorrow.add(Calendar.DATE, 1);
         Calendar past = Calendar.getInstance();
