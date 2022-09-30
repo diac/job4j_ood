@@ -3,6 +3,9 @@ package ru.job4j.isp;
 import java.util.LinkedList;
 import java.util.List;
 
+/*
+* Класс предназначен для хранения очень больших целочисленных значений, выходящих за диапазон Long
+* */
 public class VeryLongInt implements Addable {
 
     private List<Long> value = new LinkedList<>();
