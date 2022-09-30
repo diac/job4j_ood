@@ -1,18 +1,14 @@
-package ru.job4j.srp.employee;
+package ru.job4j.employee;
 
 import org.junit.jupiter.api.Test;
-import ru.job4j.employee.*;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-import static ru.job4j.employee.BetterReportEngine.DECIMAL_FORMAT;
-
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static ru.job4j.employee.Constants.DATE_FORMAT;
+import static ru.job4j.employee.Constants.DECIMAL_FORMAT;
 
 class ReportEngineTest {
-
-    private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd:MM:yyyy HH:mm");
 
     @Test
     public void whenOldGenerated() {

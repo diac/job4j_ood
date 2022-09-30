@@ -1,11 +1,11 @@
 package ru.job4j.employee;
 
-import java.text.SimpleDateFormat;
 import java.util.function.Predicate;
 
-public class DeveloperHtmlReport implements Report {
+import static ru.job4j.employee.Constants.DATE_FORMAT;
+import static ru.job4j.employee.Constants.LINE_SEPARATOR;
 
-    public static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd:MM:yyyy HH:mm");
+public class DeveloperHtmlReport implements Report {
 
     private final Store store;
 
@@ -36,7 +36,7 @@ public class DeveloperHtmlReport implements Report {
                             </tr>
                         </thead>
                         <tbody>""")
-                .append(System.lineSeparator());
+                .append(LINE_SEPARATOR);
         for (Employee employee : store.findBy(filter)) {
             text.append("<tr>");
             text.append("<td>").append(employee.getName()).append("</td>");

@@ -2,14 +2,11 @@ package ru.job4j.employee;
 
 import org.junit.jupiter.api.Test;
 
-import java.text.DecimalFormat;
 import java.util.Calendar;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class HrReportTest {
-
-    public static final DecimalFormat DECIMAL_FORMAT = new DecimalFormat("0.00");
 
     @Test
     public void whenGenerate() {
@@ -24,10 +21,10 @@ class HrReportTest {
                 .append("Name; Salary;")
                 .append(System.lineSeparator())
                 .append(stepan.getName()).append(";")
-                .append("$" + DECIMAL_FORMAT.format(stepan.getSalary())).append(";")
+                .append(stepan.getSalary()).append(";")
                 .append(System.lineSeparator())
                 .append(ivan.getName()).append(";")
-                .append("$" + DECIMAL_FORMAT.format(ivan.getSalary())).append(";")
+                .append(ivan.getSalary()).append(";")
                 .append(System.lineSeparator());
         assertThat(engine.generate(em -> true)).isEqualTo(expect.toString());
     }

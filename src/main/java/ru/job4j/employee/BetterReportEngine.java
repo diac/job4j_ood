@@ -1,11 +1,12 @@
 package ru.job4j.employee;
 
-import java.text.DecimalFormat;
+import java.util.Comparator;
 import java.util.function.Predicate;
 
-public class BetterReportEngine implements Report {
+import static ru.job4j.employee.Constants.DECIMAL_FORMAT;
+import static ru.job4j.employee.Constants.LINE_SEPARATOR;
 
-    public static final DecimalFormat DECIMAL_FORMAT = new DecimalFormat("0.00");
+public class BetterReportEngine implements Report {
 
     private final Store store;
 
@@ -34,11 +35,11 @@ public class BetterReportEngine implements Report {
                             </tr>
                         </thead>
                         <tbody>""")
-                .append(System.lineSeparator());
+                .append(LINE_SEPARATOR);
         for (Employee employee
                 : store.findBy(filter)
                     .stream()
-                    .sorted((left, right) -> left.getSalary() > right.getSalary() ? -1 : 1)
+                    .sorted(Comparator.comparing(Employee::getSalary).reversed())
                     .toList()
         ) {
             text.append("<tr>");
