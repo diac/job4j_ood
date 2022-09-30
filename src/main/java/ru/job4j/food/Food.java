@@ -57,8 +57,4 @@ public abstract class Food {
     public void setDiscount(float discount) {
         this.discount = discount;
     }
-
-    public void applyDiscount() {
-        price = price - price * discount / 100;
-    }
 }
