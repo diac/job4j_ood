@@ -1,5 +1,6 @@
 package ru.job4j.employee;
 
+import javax.xml.bind.JAXBException;
 import java.util.Calendar;
 import java.util.List;
 
@@ -9,7 +10,11 @@ public class Main {
         Store store = new MemStore();
         populateStore(store);
         UI ui = new UI(store);
-        ui.run();
+        try {
+            ui.run();
+        } catch (JAXBException e) {
+            e.printStackTrace();
+        }
     }
 
     private static void populateStore(Store store) {

@@ -1,6 +1,6 @@
 package ru.job4j.employee;
 
-import com.google.gson.GsonBuilder;
+import com.google.gson.Gson;
 
 import java.util.List;
 import java.util.function.Predicate;
@@ -8,9 +8,11 @@ import java.util.function.Predicate;
 public class JsonReport implements Report {
 
     private final Store store;
+    private final Gson gson;
 
-    public JsonReport(Store store) {
+    public JsonReport(Store store, Gson gson) {
         this.store = store;
+        this.gson = gson;
     }
 
     @Override
@@ -21,7 +23,6 @@ public class JsonReport implements Report {
     @Override
     public String generate(Predicate<Employee> filter) {
         List<Employee> employees = EmployeesReportData.standardReport(store, filter);
-        var gsonBuilder = new GsonBuilder().create();
-        return gsonBuilder.toJson(employees);
+        return gson.toJson(employees);
     }
 }

@@ -1,5 +1,10 @@
 package ru.job4j.employee;
 
+import com.google.gson.GsonBuilder;
+
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
 import java.util.Scanner;
 import java.util.function.Predicate;
 
@@ -17,8 +22,12 @@ public class UI {
         this.store = store;
     }
 
-    public void run() {
+    public void run() throws JAXBException {
         boolean run = true;
+        var gson = new GsonBuilder().create();
+        JAXBContext context = JAXBContext.newInstance(Employees.class);
+        Marshaller marshaller = context.createMarshaller();
+        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
         while (run) {
             System.out.println("""
                     Выберите действие:
@@ -27,9 +36,9 @@ public class UI {
                     Любой другой символ: Завершить работу""");
             int choice = Integer.parseInt(scanner.nextLine());
             if (choice == 1) {
-                report = new JsonReport(store);
+                report = new JsonReport(store, gson);
             } else if (choice == 2) {
-                report = new XmlReport(store);
+                report = new XmlReport(store, context, marshaller);
             } else {
                 run = false;
             }
