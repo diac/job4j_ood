@@ -28,6 +28,12 @@ public class Shop implements Store {
         return new ArrayList<>(foods);
     }
 
+    void applyDiscount(Food food) {
+        if (getFoodExpiryRate(food) >= FoodExpiryThresholds.DISCOUNT) {
+            food.setPrice(food.getPrice() - food.getPrice() * food.getDiscount() / 100);
+        }
+    }
+
     @Override
     public List<Food> getExpired() {
         List<Food> expired = foods.stream()

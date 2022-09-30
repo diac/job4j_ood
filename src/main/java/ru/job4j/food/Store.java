@@ -13,12 +13,6 @@ public interface Store {
 
     List<Food> getExpired();
 
-    default void applyDiscount(Food food) {
-        if (getFoodExpiryRate(food) >= FoodExpiryThresholds.DISCOUNT) {
-            food.setPrice(food.getPrice() - food.getPrice() * food.getDiscount() / 100);
-        }
-    }
-
     default long getFoodExpiryRate(Food food) {
         long expiryRate = (Calendar.getInstance().getTimeInMillis() - food.getCreateDate().getTimeInMillis())
                 * 100
