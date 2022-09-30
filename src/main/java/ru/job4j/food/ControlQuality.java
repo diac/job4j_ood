@@ -13,7 +13,7 @@ public class ControlQuality {
     public void sort(List<Food> foods) {
         for (var store : stores) {
             for (var food : foods) {
-                store.accept(food);
+                store.add(food);
             }
         }
     }

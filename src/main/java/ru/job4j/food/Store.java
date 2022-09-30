@@ -5,6 +5,8 @@ import java.util.List;
 
 public interface Store {
 
+    boolean add(Food food);
+
     boolean accept(Food food);
 
     List<Food> getFoods();
