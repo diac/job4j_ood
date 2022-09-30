@@ -11,9 +11,11 @@ public class ControlQuality {
     }
 
     public void sort(List<Food> foods) {
-        for (var store : stores) {
-            for (var food : foods) {
-                store.add(food);
+        for (var food : foods) {
+            for (var store : stores) {
+                if (store.add(food)) {
+                    break;
+                }
             }
         }
     }
