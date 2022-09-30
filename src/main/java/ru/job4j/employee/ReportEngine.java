@@ -3,6 +3,8 @@ package ru.job4j.employee;
 import java.text.SimpleDateFormat;
 import java.util.function.Predicate;
 
+import static ru.job4j.employee.Constants.LINE_SEPARATOR;
+
 public class ReportEngine implements Report {
 
     private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd:MM:yyyy HH:mm");
@@ -22,13 +24,13 @@ public class ReportEngine implements Report {
     public String generate(Predicate<Employee> filter) {
         StringBuilder text = new StringBuilder();
         text.append("Name; Hired; Fired; Salary;")
-                .append(System.lineSeparator());
+                .append(LINE_SEPARATOR);
         for (Employee employee : store.findBy(filter)) {
             text.append(employee.getName()).append(";")
                     .append(DATE_FORMAT.format(employee.getHired().getTime())).append(";")
                     .append(DATE_FORMAT.format(employee.getFired().getTime())).append(";")
                     .append(employee.getSalary()).append(";")
-                    .append(System.lineSeparator());
+                    .append(LINE_SEPARATOR);
         }
         return text.toString();
     }
