@@ -1,12 +1,14 @@
-package ru.job4j.employee;
+package ru.job4j.employee.report;
 
 import org.junit.jupiter.api.Test;
+import ru.job4j.employee.model.Employee;
+import ru.job4j.employee.store.MemStore;
 
 import java.util.Calendar;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static ru.job4j.employee.ReportConstants.DATE_FORMAT;
-import static ru.job4j.employee.ReportConstants.DECIMAL_FORMAT;
+import static ru.job4j.employee.report.ReportConstants.DATE_FORMAT;
+import static ru.job4j.employee.report.ReportConstants.DECIMAL_FORMAT;
 
 class ReportEngineTest {
 

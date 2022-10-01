@@ -1,4 +1,7 @@
-package ru.job4j.employee;
+package ru.job4j.employee.report;
+
+import ru.job4j.employee.model.Employee;
+import ru.job4j.employee.store.Store;
 
 import java.util.List;
 import java.util.function.Predicate;

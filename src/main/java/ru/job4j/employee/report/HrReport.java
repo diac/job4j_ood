@@ -1,9 +1,12 @@
-package ru.job4j.employee;
+package ru.job4j.employee.report;
+
+import ru.job4j.employee.model.Employee;
+import ru.job4j.employee.store.Store;
 
 import java.util.Comparator;
 import java.util.function.Predicate;
 
-import static ru.job4j.employee.ReportConstants.LINE_SEPARATOR;
+import static ru.job4j.employee.report.ReportConstants.LINE_SEPARATOR;
 
 public class HrReport implements Report {
 

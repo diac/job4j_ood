@@ -1,4 +1,8 @@
-package ru.job4j.employee;
+package ru.job4j.employee.report;
+
+import ru.job4j.employee.model.Employee;
+import ru.job4j.employee.model.Employees;
+import ru.job4j.employee.store.Store;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;

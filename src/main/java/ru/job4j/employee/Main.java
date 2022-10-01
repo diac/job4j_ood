@@ -1,5 +1,9 @@
 package ru.job4j.employee;
 
+import ru.job4j.employee.model.Employee;
+import ru.job4j.employee.store.MemStore;
+import ru.job4j.employee.store.Store;
+
 import javax.xml.bind.JAXBException;
 import java.util.Calendar;
 import java.util.List;

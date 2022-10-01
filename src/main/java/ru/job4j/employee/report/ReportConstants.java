@@ -1,4 +1,4 @@
-package ru.job4j.employee;
+package ru.job4j.employee.report;
 
 import java.text.DateFormat;
 import java.text.DecimalFormat;

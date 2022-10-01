@@ -1,4 +1,4 @@
-package ru.job4j.employee;
+package ru.job4j.employee.model;
 
 import java.util.Calendar;
 import java.util.Objects;

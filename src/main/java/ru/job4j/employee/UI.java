@@ -1,6 +1,12 @@
 package ru.job4j.employee;
 
 import com.google.gson.GsonBuilder;
+import ru.job4j.employee.model.Employee;
+import ru.job4j.employee.model.Employees;
+import ru.job4j.employee.report.JsonReport;
+import ru.job4j.employee.report.Report;
+import ru.job4j.employee.report.XmlReport;
+import ru.job4j.employee.store.Store;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;

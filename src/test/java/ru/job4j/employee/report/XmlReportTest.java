@@ -1,18 +1,21 @@
-package ru.job4j.employee;
+package ru.job4j.employee.report;
 
 import org.junit.jupiter.api.Test;
+import ru.job4j.employee.model.Employee;
+import ru.job4j.employee.model.Employees;
+import ru.job4j.employee.store.MemStore;
+import ru.job4j.employee.store.Store;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
-
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneOffset;
 import java.util.Calendar;
 import java.util.Date;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class XmlReportTest {
 

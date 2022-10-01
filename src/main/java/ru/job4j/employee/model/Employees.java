@@ -1,4 +1,4 @@
-package ru.job4j.employee;
+package ru.job4j.employee.model;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
