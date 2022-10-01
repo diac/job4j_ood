@@ -7,6 +7,7 @@ import ru.job4j.employee.store.MemStore;
 import java.util.Calendar;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static ru.job4j.employee.report.ReportConstants.LINE_SEPARATOR;
 
 class HrReportTest {
 
@@ -21,13 +22,13 @@ class HrReportTest {
         Report engine = new HrReport(store);
         StringBuilder expect = new StringBuilder()
                 .append("Name; Salary;")
-                .append(System.lineSeparator())
+                .append(LINE_SEPARATOR)
                 .append(stepan.getName()).append(";")
                 .append(stepan.getSalary()).append(";")
-                .append(System.lineSeparator())
+                .append(LINE_SEPARATOR)
                 .append(ivan.getName()).append(";")
                 .append(ivan.getSalary()).append(";")
-                .append(System.lineSeparator());
+                .append(LINE_SEPARATOR);
         assertThat(engine.generate(em -> true)).isEqualTo(expect.toString());
     }
 }

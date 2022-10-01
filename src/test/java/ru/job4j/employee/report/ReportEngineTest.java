@@ -7,8 +7,7 @@ import ru.job4j.employee.store.MemStore;
 import java.util.Calendar;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static ru.job4j.employee.report.ReportConstants.DATE_FORMAT;
-import static ru.job4j.employee.report.ReportConstants.DECIMAL_FORMAT;
+import static ru.job4j.employee.report.ReportConstants.*;
 
 class ReportEngineTest {
 
@@ -21,12 +20,12 @@ class ReportEngineTest {
         Report engine = new ReportEngine(store);
         StringBuilder expect = new StringBuilder()
                 .append("Name; Hired; Fired; Salary;")
-                .append(System.lineSeparator())
+                .append(LINE_SEPARATOR)
                 .append(worker.getName()).append(";")
                 .append(DATE_FORMAT.format(worker.getHired().getTime())).append(";")
                 .append(DATE_FORMAT.format(worker.getFired().getTime())).append(";")
                 .append(worker.getSalary()).append(";")
-                .append(System.lineSeparator());
+                .append(LINE_SEPARATOR);
         assertThat(engine.generate(em -> true)).isEqualTo(expect.toString());
     }
 
@@ -53,7 +52,7 @@ class ReportEngineTest {
                             </tr>
                         </thead>
                         <tbody>""")
-                .append(System.lineSeparator());
+                .append(LINE_SEPARATOR);
         expect.append("<tr>");
         expect.append("<td>").append(stepan.getName()).append("</td>");
         expect.append("<td>").append("$" + DECIMAL_FORMAT.format(stepan.getSalary())).append("</td>");

@@ -4,14 +4,13 @@ import org.junit.jupiter.api.Test;
 import ru.job4j.employee.model.Employee;
 import ru.job4j.employee.store.MemStore;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static ru.job4j.employee.report.ReportConstants.DATE_FORMAT;
+import static ru.job4j.employee.report.ReportConstants.LINE_SEPARATOR;
 
 class DeveloperHtmlReportTest {
-
-    public static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd:MM:yyyy HH:mm");
 
     @Test
     public void whenGenerate() {
@@ -38,7 +37,7 @@ class DeveloperHtmlReportTest {
                             </tr>
                         </thead>
                         <tbody>""")
-                .append(System.lineSeparator());
+                .append(LINE_SEPARATOR);
         expect.append("<tr>");
         expect.append("<td>").append(ivan.getName()).append("</td>");
         expect.append("<td>").append(DATE_FORMAT.format(ivan.getHired().getTime())).append("</td>");

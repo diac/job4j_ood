@@ -6,7 +6,6 @@ import ru.job4j.employee.model.Employee;
 import ru.job4j.employee.store.MemStore;
 import ru.job4j.employee.store.Store;
 
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneOffset;
 import java.util.Calendar;
@@ -21,7 +20,6 @@ class JsonReportTest {
         Store store = new MemStore();
         var gson = new GsonBuilder().create();
         Calendar now = Calendar.getInstance();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         now.setTime(Date.from(LocalDate.parse("2022-09-30").atStartOfDay().toInstant(ZoneOffset.UTC)));
         store.add(new Employee("John Smith", now, now, 3200));
         store.add(new Employee("James Miller", now, now, 3700));

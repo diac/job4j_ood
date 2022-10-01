@@ -4,16 +4,12 @@ import org.junit.jupiter.api.Test;
 import ru.job4j.employee.model.Employee;
 import ru.job4j.employee.store.MemStore;
 
-import java.text.DecimalFormat;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static ru.job4j.employee.report.ReportConstants.*;
 
 class AccountingReportTest {
-
-    private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd:MM:yyyy HH:mm");
-    public static final DecimalFormat DECIMAL_FORMAT = new DecimalFormat("0.00");
 
     @Test
     public void whenGenerate() {
@@ -22,14 +18,10 @@ class AccountingReportTest {
         Employee worker = new Employee("Ivan", now, now, 100);
         store.add(worker);
         Report engine = new AccountingReport(store);
-        StringBuilder expect = new StringBuilder()
-                .append("Name; Hired; Fired; Salary;")
-                .append(System.lineSeparator())
-                .append(worker.getName()).append(";")
-                .append(DATE_FORMAT.format(worker.getHired().getTime())).append(";")
-                .append(DATE_FORMAT.format(worker.getFired().getTime())).append(";")
-                .append("$" + DECIMAL_FORMAT.format(worker.getSalary())).append(";")
-                .append(System.lineSeparator());
-        assertThat(engine.generate(em -> true)).isEqualTo(expect.toString());
+        String expect = "Name; Hired; Fired; Salary;" + LINE_SEPARATOR + worker.getName() + ";"
+                + DATE_FORMAT.format(worker.getHired().getTime()) + ";"
+                + DATE_FORMAT.format(worker.getFired().getTime()) + ";" + "$"
+                + DECIMAL_FORMAT.format(worker.getSalary()) + ";" + LINE_SEPARATOR;
+        assertThat(engine.generate(em -> true)).isEqualTo(expect);
     }
 }
