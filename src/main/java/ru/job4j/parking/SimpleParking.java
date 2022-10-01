@@ -20,7 +20,13 @@ public class SimpleParking implements Parking {
 
     @Override
     public boolean park(Car car) {
-        return false;
+        boolean canPark;
+        if (car.getSize() > PassengerCar.SIZE) {
+            canPark = !trucks.contains(car);
+        } else {
+            canPark = !passengerCars.contains(car);
+        }
+        return canPark;
     }
 
     @Override
