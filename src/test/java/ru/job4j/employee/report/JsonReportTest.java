@@ -23,12 +23,14 @@ class JsonReportTest {
         store.add(new Employee("James Miller", now, now, 3700));
         Report report = new JsonReport(store);
         var generated = report.generate(employee -> true);
-        var expected = "[{\"name\":\"James Miller\",\"hired\":{\"year\":2022,\"month\":8,\"dayOfMonth\":30,"
-                + "\"hourOfDay\":3,\"minute\":0,\"second\":0},\"fired\":{\"year\":2022,\"month\":8,\"dayOfMonth\":30,"
-                + "\"hourOfDay\":3,\"minute\":0,\"second\":0},\"salary\":3700.0},{\"name\":\"John Smith\","
-                + "\"hired\":{\"year\":2022,\"month\":8,\"dayOfMonth\":30,\"hourOfDay\":3,\"minute\":0,\"second\":0},"
-                + "\"fired\":{\"year\":2022,\"month\":8,\"dayOfMonth\":30,\"hourOfDay\":3,\"minute\":0,\"second\":0},"
-                + "\"salary\":3200.0}]";
+        var expected = new StringBuilder()
+                .append("[{\"name\":\"James Miller\",\"hired\":{\"year\":2022,\"month\":8,\"dayOfMonth\":30,")
+                .append("\"hourOfDay\":3,\"minute\":0,\"second\":0},\"fired\":{\"year\":2022,\"month\":8,\"dayOfMonth\":30,")
+                .append("\"hourOfDay\":3,\"minute\":0,\"second\":0},\"salary\":3700.0},{\"name\":\"John Smith\",")
+                .append("\"hired\":{\"year\":2022,\"month\":8,\"dayOfMonth\":30,\"hourOfDay\":3,\"minute\":0,\"second\":0},")
+                .append("\"fired\":{\"year\":2022,\"month\":8,\"dayOfMonth\":30,\"hourOfDay\":3,\"minute\":0,\"second\":0},")
+                .append("\"salary\":3200.0}]")
+                .toString();
         assertThat(expected).isEqualTo(generated);
     }
 }

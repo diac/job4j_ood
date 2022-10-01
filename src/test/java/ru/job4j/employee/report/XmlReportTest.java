@@ -25,11 +25,13 @@ class XmlReportTest {
             store.add(new Employee("James Miller", now, now, 3700));
             Report report = new XmlReport(store);
             var generated = report.generate(employee -> true);
-            var expected = "<?xml version=\"1.0\" encoding=\"UTF-8\" "
-                    + "standalone=\"yes\"?><employees><employee><fired>2022-09-30T03:00:00+03:00</fired><hired>2022"
-                    + "-09-30T03:00:00+03:00</hired><name>James Miller</name><salary>3700"
-                    + ".0</salary></employee><employee><fired>2022-09-30T03:00:00+03:00</fired><hired>2022-09-30T03"
-                    + ":00:00+03:00</hired><name>John Smith</name><salary>3200.0</salary></employee></employees>";
+            var expected = new StringBuilder()
+                    .append("<?xml version=\"1.0\" encoding=\"UTF-8\" ")
+                    .append("standalone=\"yes\"?><employees><employee><fired>2022-09-30T03:00:00+03:00</fired><hired>2022")
+                    .append("-09-30T03:00:00+03:00</hired><name>James Miller</name><salary>3700")
+                    .append(".0</salary></employee><employee><fired>2022-09-30T03:00:00+03:00</fired><hired>2022-09-30T03")
+                    .append(":00:00+03:00</hired><name>John Smith</name><salary>3200.0</salary></employee></employees>")
+                    .toString();
             assertThat(expected).isEqualTo(generated);
         } catch (JAXBException e) {
             e.printStackTrace();
