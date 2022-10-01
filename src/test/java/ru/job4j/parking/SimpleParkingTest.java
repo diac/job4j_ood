@@ -48,6 +48,17 @@ class SimpleParkingTest {
         parking.park(firstTruck);
         parking.park(secondTruck);
         assertThat(parking.getCars()).containsExactly(firstTruck);
+        assertThat(parking.getCars()).doesNotContain(secondTruck);
+    }
+
+    @Test
+    public void whenParkPassengerCarOnTruckPlace() {
+        Parking parking = new SimpleParking(1, 1);
+        Car firstCar = new PassengerCar("First Car");
+        Car secondCar = new PassengerCar("Second Car");
+        parking.park(firstCar);
+        parking.park(secondCar);
+        assertThat(parking.getCars()).doesNotContain(secondCar);
     }
 
     @Test
