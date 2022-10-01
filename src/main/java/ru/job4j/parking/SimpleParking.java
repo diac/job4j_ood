@@ -6,14 +6,16 @@ import java.util.Set;
 
 public class SimpleParking implements Parking {
 
-    private Set<Car> passengerCars = new HashSet<>();
-    private Set<Car> trucks = new HashSet<>();
-    private final int availablePassengerCarPlaces;
-    private final int availableTruckPlaces;
+    private Set<Car> passengerCars;
+    private Set<Car> trucks;
+    private final int carPlaces;
+    private final int truckPlaces;
 
-    public SimpleParking(int availablePassengerCarPlaces, int availableTruckPlaces) {
-        this.availablePassengerCarPlaces = availablePassengerCarPlaces;
-        this.availableTruckPlaces = availableTruckPlaces;
+    public SimpleParking(int carPlaces, int truckPlaces) {
+        this.carPlaces = carPlaces;
+        this.truckPlaces = truckPlaces;
+        passengerCars = new HashSet<>(carPlaces);
+        trucks = new HashSet<>(truckPlaces);
     }
 
     @Override
