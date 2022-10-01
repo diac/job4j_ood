@@ -2,7 +2,7 @@ package ru.job4j.employee;
 
 import java.util.function.Predicate;
 
-import static ru.job4j.employee.Constants.*;
+import static ru.job4j.employee.ReportConstants.*;
 
 public class AccountingReport implements Report {
 

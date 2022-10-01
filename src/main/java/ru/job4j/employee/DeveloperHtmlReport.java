@@ -2,8 +2,8 @@ package ru.job4j.employee;
 
 import java.util.function.Predicate;
 
-import static ru.job4j.employee.Constants.DATE_FORMAT;
-import static ru.job4j.employee.Constants.LINE_SEPARATOR;
+import static ru.job4j.employee.ReportConstants.DATE_FORMAT;
+import static ru.job4j.employee.ReportConstants.LINE_SEPARATOR;
 
 public class DeveloperHtmlReport implements Report {
 

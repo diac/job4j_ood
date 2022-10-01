@@ -3,8 +3,8 @@ package ru.job4j.employee;
 import java.util.Comparator;
 import java.util.function.Predicate;
 
-import static ru.job4j.employee.Constants.DECIMAL_FORMAT;
-import static ru.job4j.employee.Constants.LINE_SEPARATOR;
+import static ru.job4j.employee.ReportConstants.DECIMAL_FORMAT;
+import static ru.job4j.employee.ReportConstants.LINE_SEPARATOR;
 
 public class BetterReportEngine implements Report {
 

@@ -5,8 +5,8 @@ import org.junit.jupiter.api.Test;
 import java.util.Calendar;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static ru.job4j.employee.Constants.DATE_FORMAT;
-import static ru.job4j.employee.Constants.DECIMAL_FORMAT;
+import static ru.job4j.employee.ReportConstants.DATE_FORMAT;
+import static ru.job4j.employee.ReportConstants.DECIMAL_FORMAT;
 
 class ReportEngineTest {
 

@@ -1,13 +1,11 @@
 package ru.job4j.employee;
 
-import java.text.SimpleDateFormat;
 import java.util.function.Predicate;
 
-import static ru.job4j.employee.Constants.LINE_SEPARATOR;
+import static ru.job4j.employee.ReportConstants.DATE_FORMAT;
+import static ru.job4j.employee.ReportConstants.LINE_SEPARATOR;
 
 public class ReportEngine implements Report {
-
-    private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd:MM:yyyy HH:mm");
 
     private Store store;
 
