@@ -1,16 +1,12 @@
 package ru.job4j.employee;
 
-import com.google.gson.GsonBuilder;
 import ru.job4j.employee.model.Employee;
-import ru.job4j.employee.model.Employees;
 import ru.job4j.employee.report.JsonReport;
 import ru.job4j.employee.report.Report;
 import ru.job4j.employee.report.XmlReport;
 import ru.job4j.employee.store.Store;
 
-import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
 import java.util.Scanner;
 import java.util.function.Predicate;
 
@@ -28,12 +24,8 @@ public class UI {
         this.store = store;
     }
 
-    public void run() throws JAXBException {
+    public void run() {
         boolean run = true;
-        var gson = new GsonBuilder().create();
-        JAXBContext context = JAXBContext.newInstance(Employees.class);
-        Marshaller marshaller = context.createMarshaller();
-        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
         while (run) {
             System.out.println("""
                     Выберите действие:
@@ -42,9 +34,14 @@ public class UI {
                     Любой другой символ: Завершить работу""");
             int choice = Integer.parseInt(scanner.nextLine());
             if (choice == 1) {
-                report = new JsonReport(store, gson);
+                report = new JsonReport(store);
             } else if (choice == 2) {
-                report = new XmlReport(store, context, marshaller);
+                try {
+                    report = new XmlReport(store);
+                } catch (JAXBException e) {
+                    run = false;
+                    e.printStackTrace();
+                }
             } else {
                 run = false;
             }

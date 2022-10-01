@@ -4,7 +4,6 @@ import ru.job4j.employee.model.Employee;
 import ru.job4j.employee.store.MemStore;
 import ru.job4j.employee.store.Store;
 
-import javax.xml.bind.JAXBException;
 import java.util.Calendar;
 import java.util.List;
 
@@ -14,11 +13,7 @@ public class Main {
         Store store = new MemStore();
         populateStore(store);
         UI ui = new UI(store);
-        try {
-            ui.run();
-        } catch (JAXBException e) {
-            e.printStackTrace();
-        }
+        ui.run();
     }
 
     private static void populateStore(Store store) {
@@ -34,8 +29,7 @@ public class Main {
                 new Employee("Marcello Giordano", now, now, 4200),
                 new Employee("Dan Harris", now, now, 3100),
                 new Employee("Patricia Martinez", now, now, 3700),
-                new Employee("Bruno Lewenberg", now, now, 4400)
-        );
+                new Employee("Bruno Lewenberg", now, now, 4400));
         for (var employee : employees) {
             store.add(employee);
         }
