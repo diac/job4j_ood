@@ -11,9 +11,9 @@ class SimpleParkingTest {
     @Test
     public void whenParkTwoPassengerCarsAndOneTruck() {
         Parking parking = new SimpleParking(2, 1);
-        Car firstCar = new PassengerCar();
-        Car secondCar = new PassengerCar();
-        Car truck = new Truck(5);
+        Car firstCar = new PassengerCar("First Car");
+        Car secondCar = new PassengerCar("Second Car");
+        Car truck = new Truck("Truck", 5);
         parking.park(firstCar);
         parking.park(secondCar);
         parking.park(truck);
@@ -23,8 +23,8 @@ class SimpleParkingTest {
     @Test
     public void whenParkSmallTruckAndBigTruck() {
         Parking parking = new SimpleParking(2, 1);
-        Car smallTruck = new Truck(2);
-        Car bigTruck = new Truck(5);
+        Car smallTruck = new Truck("Small Truck", 2);
+        Car bigTruck = new Truck("Big Truck", 5);
         parking.park(smallTruck);
         parking.park(bigTruck);
         assertThat(parking.getCars()).containsExactly(smallTruck, bigTruck);
@@ -33,8 +33,8 @@ class SimpleParkingTest {
     @Test
     public void whenParkTwoSmallTrucks() {
         Parking parking = new SimpleParking(2, 1);
-        Car firstTruck = new Truck(2);
-        Car secondTruck = new Truck(2);
+        Car firstTruck = new Truck("First Truck", 2);
+        Car secondTruck = new Truck("Second Truck", 2);
         parking.park(firstTruck);
         parking.park(secondTruck);
         assertThat(parking.getCars()).containsExactly(firstTruck, secondTruck);
@@ -43,8 +43,8 @@ class SimpleParkingTest {
     @Test
     public void whenParkTwoBigTrucksAndNoPlaceAvailableForSecond() {
         Parking parking = new SimpleParking(2, 1);
-        Car firstTruck = new Truck(5);
-        Car secondTruck = new Truck(5);
+        Car firstTruck = new Truck("First Truck", 5);
+        Car secondTruck = new Truck("Second Truck", 5);
         parking.park(firstTruck);
         parking.park(secondTruck);
         assertThat(parking.getCars()).containsExactly(firstTruck);
@@ -53,9 +53,9 @@ class SimpleParkingTest {
     @Test
     public void whenRemove() {
         Parking parking = new SimpleParking(2, 1);
-        Car firstCar = new PassengerCar();
-        Car secondCar = new PassengerCar();
-        Car truck = new Truck(5);
+        Car firstCar = new PassengerCar("First Car");
+        Car secondCar = new PassengerCar("Second Car");
+        Car truck = new Truck("Truck", 5);
         parking.park(firstCar);
         parking.park(secondCar);
         parking.park(truck);
