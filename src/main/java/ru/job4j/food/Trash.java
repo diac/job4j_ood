@@ -30,4 +30,9 @@ public class Trash implements Store {
     public List<Food> getExpired() {
         return null;
     }
+
+    @Override
+    public void clear() {
+        foods.clear();
+    }
 }

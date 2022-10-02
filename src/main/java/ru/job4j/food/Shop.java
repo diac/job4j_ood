@@ -42,4 +42,9 @@ public class Shop implements Store {
         foods.removeAll(expired);
         return expired;
     }
+
+    @Override
+    public void clear() {
+        foods.clear();
+    }
 }

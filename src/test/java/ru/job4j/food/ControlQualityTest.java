@@ -111,4 +111,37 @@ class ControlQualityTest {
         assertThat(shop.getFoods().containsAll(foods)).isTrue();
         assertThat(foods.get(0).getPrice()).isEqualTo(75);
     }
+
+    @Test
+    public void whenSortAndResort() {
+        Store warehouse = new Warehouse();
+        Store shop = new Shop();
+        Store trash = new Trash();
+        ControlQuality controlQuality = new ControlQuality(List.of(warehouse, shop, trash));
+        Calendar today = Calendar.getInstance();
+        Calendar future = Calendar.getInstance();
+        future.add(Calendar.DATE, 10);
+        Calendar tomorrow = Calendar.getInstance();
+        tomorrow.add(Calendar.DATE, 1);
+        Calendar yesterday = Calendar.getInstance();
+        yesterday.add(Calendar.DATE, -1);
+        Calendar past = Calendar.getInstance();
+        past.add(Calendar.DATE, -10);
+        Food freshToGood = new SimpleFood("Fresh > Good", future, today, 100, 0);
+        Food goodToSpoiled = new SimpleFood("Good > Spoiled", tomorrow, yesterday, 100, 0);
+        Food spoiled = new SimpleFood("Spoiled", yesterday, past, 100, 0);
+        List<Food> foods = List.of(freshToGood, goodToSpoiled, spoiled);
+        controlQuality.sort(foods);
+        assertThat(warehouse.getFoods()).containsExactly(freshToGood);
+        assertThat(shop.getFoods()).containsExactly(goodToSpoiled);
+        assertThat(trash.getFoods()).containsExactly(spoiled);
+        freshToGood.setExpiryDate(tomorrow);
+        freshToGood.setCreateDate(yesterday);
+        goodToSpoiled.setExpiryDate(yesterday);
+        goodToSpoiled.setCreateDate(past);
+        controlQuality.resort();
+        assertThat(warehouse.getFoods()).isEmpty();
+        assertThat(shop.getFoods()).containsExactly(freshToGood);
+        assertThat(trash.getFoods()).containsExactlyInAnyOrder(goodToSpoiled, spoiled);
+    }
 }

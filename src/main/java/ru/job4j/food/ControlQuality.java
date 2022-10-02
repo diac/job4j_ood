@@ -1,5 +1,6 @@
 package ru.job4j.food;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ControlQuality {
@@ -18,5 +19,14 @@ public class ControlQuality {
                 }
             }
         }
+    }
+
+    public void resort() {
+        List<Food> unsortedFood = new ArrayList<>();
+        stores.forEach(store -> {
+            unsortedFood.addAll(store.getFoods());
+            store.clear();
+        });
+        sort(unsortedFood);
     }
 }

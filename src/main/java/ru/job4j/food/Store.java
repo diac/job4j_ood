@@ -13,6 +13,8 @@ public interface Store {
 
     List<Food> getExpired();
 
+    void clear();
+
     default long getFoodExpiryRate(Food food) {
         long expiryRate = (Calendar.getInstance().getTimeInMillis() - food.getCreateDate().getTimeInMillis())
                 * 100

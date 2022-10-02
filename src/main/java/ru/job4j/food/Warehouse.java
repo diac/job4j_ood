@@ -33,4 +33,9 @@ public class Warehouse implements Store {
         foods.removeAll(expired);
         return expired;
     }
+
+    @Override
+    public void clear() {
+        foods.clear();
+    }
 }
