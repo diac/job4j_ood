@@ -1,11 +1,9 @@
 package ru.job4j.parking;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
-@Disabled
 class SimpleParkingTest {
 
     @Test
@@ -17,17 +15,17 @@ class SimpleParkingTest {
         parking.park(firstCar);
         parking.park(secondCar);
         parking.park(truck);
-        assertThat(parking.getCars()).containsExactly(firstCar, secondCar, truck);
+        assertThat(parking.getCars()).containsExactlyInAnyOrder(firstCar, secondCar, truck);
     }
 
     @Test
     public void whenParkSmallTruckAndBigTruck() {
         Parking parking = new SimpleParking(2, 1);
-        Car smallTruck = new Truck("Small Truck", 2);
         Car bigTruck = new Truck("Big Truck", 5);
-        parking.park(smallTruck);
+        Car smallTruck = new Truck("Small Truck", 2);
         parking.park(bigTruck);
-        assertThat(parking.getCars()).containsExactly(smallTruck, bigTruck);
+        parking.park(smallTruck);
+        assertThat(parking.getCars()).containsExactlyInAnyOrder(smallTruck, bigTruck);
     }
 
     @Test
@@ -37,7 +35,7 @@ class SimpleParkingTest {
         Car secondTruck = new Truck("Second Truck", 2);
         parking.park(firstTruck);
         parking.park(secondTruck);
-        assertThat(parking.getCars()).containsExactly(firstTruck, secondTruck);
+        assertThat(parking.getCars()).containsExactlyInAnyOrder(firstTruck, secondTruck);
     }
 
     @Test
@@ -71,6 +69,6 @@ class SimpleParkingTest {
         parking.park(secondCar);
         parking.park(truck);
         parking.remove(secondCar);
-        assertThat(parking.getCars()).containsExactly(firstCar, truck);
+        assertThat(parking.getCars()).containsExactlyInAnyOrder(firstCar, truck);
     }
 }

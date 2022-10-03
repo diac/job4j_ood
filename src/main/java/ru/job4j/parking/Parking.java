@@ -8,9 +8,9 @@ public interface Parking {
 
     boolean remove(Car car);
 
-    int getAvailablePassengerCarPlaces();
+    int getCarPlaces();
 
-    int getAvailableTruckPlaces();
+    int getTruckPlaces();
 
     List<Car> getCars();
 }
