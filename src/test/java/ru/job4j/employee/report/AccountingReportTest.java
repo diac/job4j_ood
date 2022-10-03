@@ -18,10 +18,12 @@ class AccountingReportTest {
         Employee worker = new Employee("Ivan", now, now, 100);
         store.add(worker);
         Report engine = new AccountingReport(store);
-        String expect = "Name; Hired; Fired; Salary;" + LINE_SEPARATOR + worker.getName() + ";"
-                + DATE_FORMAT.format(worker.getHired().getTime()) + ";"
-                + DATE_FORMAT.format(worker.getFired().getTime()) + ";" + "$"
-                + DECIMAL_FORMAT.format(worker.getSalary()) + ";" + LINE_SEPARATOR;
+        String expect = new StringBuilder()
+                .append("Name; Hired; Fired; Salary;").append(LINE_SEPARATOR).append(worker.getName()).append(";")
+                .append(DATE_FORMAT.format(worker.getHired().getTime())).append(";")
+                .append(DATE_FORMAT.format(worker.getFired().getTime())).append(";")
+                .append("$").append(DECIMAL_FORMAT.format(worker.getSalary())).append(";").append(LINE_SEPARATOR)
+                .toString();
         assertThat(engine.generate(em -> true)).isEqualTo(expect);
     }
 }
