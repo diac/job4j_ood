@@ -4,9 +4,11 @@ import java.util.Scanner;
 
 public class TODOApp {
 
+    private static final int ADD_TODO_CHOICE = 1;
+    private static final int LIST_TODOS_CHOICE = 2;
     private static final String CHOOSE_ACTION = "Выберите действие:";
-    private static final String ADD_TODO = "1. Добавить задачу";
-    private static final String LIST_TODOS = "2. Вывести список задач";
+    private static final String ADD_TODO = ADD_TODO_CHOICE + ". Добавить задачу";
+    private static final String LIST_TODOS = LIST_TODOS_CHOICE + ". Вывести список задач";
     private static final String QUIT = "3. Завершить работу";
     private static final String ENTER_TODO_NAME = "Введите название задачи";
     private static final String ENTER_PARENT_TODO_NAME = "Введите название родительской задачи (оставьте пустым для добавления в корень)";
@@ -26,7 +28,7 @@ public class TODOApp {
             System.out.println(LIST_TODOS);
             System.out.println(QUIT);
             int choice = Integer.parseInt(scanner.nextLine());
-            if (choice == 1) {
+            if (choice == ADD_TODO_CHOICE) {
                 System.out.println(ENTER_TODO_NAME);
                 String taskName = scanner.nextLine();
                 System.out.println(ENTER_PARENT_TODO_NAME);
@@ -37,7 +39,7 @@ public class TODOApp {
                 menu.add(parentTaskName, taskName, STUB_ACTION);
                 System.out.println(TODO_CREATED);
                 menuPrinter.print(menu);
-            } else if (choice == 2) {
+            } else if (choice == LIST_TODOS_CHOICE) {
                 menuPrinter.print(menu);
             } else {
                 run = false;
